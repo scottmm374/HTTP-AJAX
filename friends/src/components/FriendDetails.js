@@ -1,6 +1,7 @@
-import React from 'react';
+
 import axios from 'axios';
 import React, { Component } from 'react';
+
 
 export default class FriendDetails extends Component {
     constructor(props) {
@@ -18,8 +19,8 @@ export default class FriendDetails extends Component {
     fetchFriends = id = {
         axios
             .get(`http://localhost:5000/api/friends/${id}`)
-            .then(responce => {
-                this,setState(() => ({ friend: responce.data }));
+            .then(response => {
+                this.setState(() => ({ friend: response.data }));
             })
             .catch(error => {
                 console.error(error);
@@ -30,6 +31,23 @@ export default class FriendDetails extends Component {
         if (!this.state.friend) {
             return <div>Loading Friends List...</div>;  
         }
+        console.log(this.props.match.params.id);
+        const { name, age, email } = this.state.friend;
+        return (
+            <div className="container">
+                <div className="friend-card">
+                    <h2>{ name }</h2>
+                    <div className="friend-age">
+                        Age: { age }
+                    </div>
+                    <div className="email">
+                        Email: { email }
+                    </div>
+                </div>
+                
+                    ))}
+            </div>
+        );
     }
-    
+
 }

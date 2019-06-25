@@ -1,18 +1,24 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 import FriendsForm from './components/FriendsForm';
+import FriendDetails from './components/FriendDetails';
 import './App.css';
 
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <div>
-        <FriendsForm />
+      
+      <div>
+        <FriendDetails />
         </div>
+        
+      <div>
+      <FriendsForm />
+      </div>
        
-      </header>
+      
     </div>
   );
 }

@@ -23,8 +23,7 @@ export default class FriendsList extends Component {
 
     }
 
-    render () {
-        console.log("Friendslist", this.props)
+    render () {}
         return (
             <div>
                 {this.state.friends.map(friend => {
