@@ -1,6 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Form, FormGroup, Label, Input, Card,  CardBody, CardTitle, } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, Card,  CardBody, CardSubtitle, CardHeader} from 'reactstrap';
 
 
 
@@ -8,9 +8,10 @@ import { Button, Form, FormGroup, Label, Input, Card,  CardBody, CardTitle, } fr
     render() {
       return (
         <div>
-            <Card>
+            <Card body inverse color="info">
+            <CardHeader tag="h3">Friends</CardHeader>
              <CardBody>
-                 <CardTitle>Friends List</CardTitle>
+                 <CardSubtitle>Would you like to be my friend?</CardSubtitle>
                 <Form>
                 <FormGroup>
                     <Label for="name">Name</Label>
@@ -22,9 +23,9 @@ import { Button, Form, FormGroup, Label, Input, Card,  CardBody, CardTitle, } fr
                 </FormGroup>
                 <FormGroup>
                     <Label for="exampleEmail">Email</Label>
-                    <Input type="email" name="email" id="exampleEmail" placeholder="with a placeholder" />
+                    <Input type="email" name="email" id="Email" placeholder="Enter Email" />
                 </FormGroup>
-                <Button>Submit</Button>
+                <Button color="warning" size="lg" block>Submit</Button>
                 </Form>
             </CardBody>
             </Card>

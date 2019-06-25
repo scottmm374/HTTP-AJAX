@@ -1,9 +1,9 @@
 import React from 'react';
 import React, { Component } from 'react';
 import axios from 'axios';
+import FriendDetails from './FriendDetails';
 
 export default class FriendsList extends Component {
-    console.log('FriendsList', props)
     constructor(props) {
         super(props);
         this.state = {
@@ -24,6 +24,7 @@ export default class FriendsList extends Component {
     }
 
     render () {
+        console.log("Friendslist", this.props)
         return (
             <div>
                 {this.state.friends.map(friend => {
