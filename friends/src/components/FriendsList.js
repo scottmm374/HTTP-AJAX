@@ -1,28 +1,24 @@
 
 import React from 'react';
-import { Card, CardText, CardBody, CardTitle } from 'reactstrap';
+import { Card, CardText, CardBody, CardHeader } from 'reactstrap';
 
-
-
-
+// Component to extract each friends information
 
 const FriendsList = props => {
     return (
         <div>
             {props.friends.map((friend) => (
                 <Card>
-                <CardBody>
-                    <CardTitle>Friend</CardTitle>
-                    <CardText><h2>{friend.name}</h2></CardText>
-                    <CardText><em>Age:</em>{friend.age}</CardText>
-                    <CardText><em>Email:</em>{friend.email}</CardText>
-                </CardBody>
-            </Card>
-         ))} 
-            
+                    <CardHeader><h2>My Friend</h2></CardHeader>
+                    <CardBody>
+                        <CardText><h4>{friend.name}</h4></CardText>
+                        <CardText><strong>Age: </strong>{friend.age}</CardText>
+                        <CardText><strong>Email: </strong>{friend.email}</CardText>
+                    </CardBody>
+                </Card>
+             ))}    
         </div>
     )
-
 }  
 
  export default FriendsList;

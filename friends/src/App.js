@@ -28,10 +28,7 @@ export default class App extends Component {
     const { savedFriends } = this.state
     return (
       <div className="App">
-        {/* <Route path='/' exact render={(props) => <FriendsList {...props} friends={ savedFriends } />} /> */}
-        <FriendsList friends={this.state.savedFriends}/>
-
-          
+        <FriendsList friends={this.state.savedFriends}/>  
         <div>
         <FriendsForm />
         </div>
