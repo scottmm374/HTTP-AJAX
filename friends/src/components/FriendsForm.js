@@ -11,7 +11,7 @@ import { Button, Form, FormGroup, Label, Input, Card,  CardBody, CardSubtitle, C
             <Card body inverse color="info">
             <CardHeader tag="h3">Friends</CardHeader>
              <CardBody>
-                 <CardSubtitle>Would you like to be my friend?</CardSubtitle>
+                 <CardSubtitle>Add Me!</CardSubtitle>
                 <Form>
                 <FormGroup>
                     <Label for="name">Name</Label>

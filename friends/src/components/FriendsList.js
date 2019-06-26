@@ -1,26 +1,28 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Card, CardText, CardBody, CardTitle } from 'reactstrap';
 
 
 
 
-export default FriendsList(props)  {
-        return (
-            <div className="friends-card">
-                {props.savedFriends.map((friend => {
-                    <Link to={`/home/${friend.id}`} key={friend.id}>
-                        <p>{ friend.name }</p>
-                        <p>{ friend.age }</p>
-                        <p>{ friend.email }</p>
-                    </Link>
-                ))}}
-                
-                
-             
-            </div>
-        )
 
-    }
+const FriendsList = props => {
+    return (
+        <div>
+            {props.friends.map((friend) => (
+                <Card>
+                <CardBody>
+                    <CardTitle>Friend</CardTitle>
+                    <CardText><h2>{friend.name}</h2></CardText>
+                    <CardText><em>Age:</em>{friend.age}</CardText>
+                    <CardText><em>Email:</em>{friend.email}</CardText>
+                </CardBody>
+            </Card>
+         ))} 
+            
+        </div>
+    )
 
- 
+}  
+
+ export default FriendsList;

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Route } from 'react';
 import axios from 'axios';
 import FriendsForm from './components/FriendsForm';
 import FriendsList from './components/FriendsList';
@@ -13,9 +13,9 @@ export default class App extends Component {
 
     componentDidMount() {
       axios.get('http://localhost:5000/friends')
-        .then(resp => {
+        .then(response => {
           this.setState({
-            savedFriends: resp.data
+            savedFriends: response.data
           })
         })
         .catch(err => {
@@ -24,16 +24,17 @@ export default class App extends Component {
     }
 
   render () {
-    const { friend } = this.state
+   
+    const { savedFriends } = this.state
     return (
       <div className="App">
-        <Route path='/' exact render={(props) => <FriendsList {...props} friend={ friend } />} />
+        {/* <Route path='/' exact render={(props) => <FriendsList {...props} friends={ savedFriends } />} /> */}
+        <FriendsList friends={this.state.savedFriends}/>
+
           
         <div>
         <FriendsForm />
         </div>
-         
-        
       </div>
     );
 
