@@ -1,4 +1,4 @@
-import React, { Component, Route } from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
 import FriendsForm from './components/FriendsForm';
 import FriendsList from './components/FriendsList';
@@ -28,7 +28,7 @@ export default class App extends Component {
     const { savedFriends } = this.state
     return (
       <div className="App">
-        <FriendsList friends={this.state.savedFriends}/>  
+        <FriendsList friends={ savedFriends}/>  
         <div>
         <FriendsForm />
         </div>

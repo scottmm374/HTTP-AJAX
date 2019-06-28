@@ -8,10 +8,10 @@ const FriendsList = props => {
     return (
         <div>
             {props.friends.map((friend) => (
-                <Card>
+                <Card key={friend.id}>
                     <CardHeader><h2>My Friend</h2></CardHeader>
                     <CardBody>
-                        <CardText><h4>{friend.name}</h4></CardText>
+                        <CardText><strong>{friend.name}</strong></CardText>
                         <CardText><strong>Age: </strong>{friend.age}</CardText>
                         <CardText><strong>Email: </strong>{friend.email}</CardText>
                     </CardBody>

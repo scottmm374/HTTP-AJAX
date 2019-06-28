@@ -12,24 +12,25 @@ import axios from 'axios';
     this.state = {
         newFriend: {
             name: '',
-            age: '',
+            age: null,
             email: ''
         }      
     }
   }
-    changeHandler = friendInfo => {
+    changeHandler = event => {
       this.setState({
-        newFriendList: {
-          [friendInfo.target.name]: friendInfo.target.value
+        newFriend: {
+
+          [event.target.name]: event.target.value
         }
       });
     };
 
     postFriend = event => {
       event.preventDefault();
-      const { name, age, email } = this.state
+      const { name, age, email } = this.state.newFriend
       const  newFriend ={ name, age, email };
-      console.log('postFriend', name, age, email)
+     console.log('postFriend', name, age, email);
 
       axios.post('http://localhost:5000/friends', newFriend)
         .then((res => {
@@ -41,10 +42,10 @@ import axios from 'axios';
     };
 
     render() {
-      const {name, age, email} = this.state
+      const {name, age, email } = this.state
       return (
         <div>
-            <Card body inverse color="info">
+            <Card body inverse color="info" >
             <CardHeader tag="h3">Friends</CardHeader>
              <CardBody>
                  <CardSubtitle>Add Me!</CardSubtitle>
