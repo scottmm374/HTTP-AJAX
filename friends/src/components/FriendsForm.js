@@ -10,25 +10,24 @@ import axios from 'axios';
   constructor(props) {
     super(props);
     this.state = {
-        newFriend: {
             name: '',
-            age: null,
+            age: '',
             email: ''
-        }      
+              
     }
   }
     changeHandler = event => {
+      console.log('event', event.target.name)
+      console.log('value', event.target.value)
       this.setState({
-        newFriend: {
-
           [event.target.name]: event.target.value
-        }
+
       });
     };
 
     postFriend = event => {
       event.preventDefault();
-      const { name, age, email } = this.state.newFriend
+      const { name, age, email } = this.state
       const  newFriend ={ name, age, email };
      console.log('postFriend', name, age, email);
 
