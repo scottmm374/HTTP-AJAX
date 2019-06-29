@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Route } from 'react';
 import axios from 'axios';
 import FriendsForm from './components/FriendsForm';
 import FriendsList from './components/FriendsList';
@@ -7,10 +7,12 @@ import './App.css';
 
 
 export default class App extends Component {
-      state = {
+  constructor() {
+    super();
+      this.state = {
         savedFriends: []
     };
-
+  }
     componentDidMount() {
       axios.get('http://localhost:5000/friends')
         .then(response => {
@@ -23,20 +25,34 @@ export default class App extends Component {
         })
     }
 
+    addFriend = event => {
+      event.preventDefault();
+      const { name, age, email } = this.state
+      const  newFriend ={ name, age, email };
+     console.log('addFriend', name, age, email);
+
+      axios.post('http://localhost:5000/friends', newFriend)
+        .then((res => {
+          console.log("res", res);
+        }))
+        .catch((err => {
+          console.log("err", err);
+        }));
+    };
+
   render () {
    
     const { savedFriends } = this.state
     return (
       <div className="App">
-        <FriendsList friends={ savedFriends}/>  
+        <FriendsList friends={ savedFriends} />  
         <div>
-        <FriendsForm />
+        <Route path="/friends" render={props => <FriendsForm {...props} addFriend={this.addFriend} /> }/>
         </div>
       </div>
-    );
+    
+    )}
 
-  }
-  
 }
 
 
