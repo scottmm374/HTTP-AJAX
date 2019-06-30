@@ -14,38 +14,37 @@ import { Button, Form, FormGroup, Label, Input, Card,  CardBody, CardSubtitle, C
               
     }
   }
-    changeHandler = event => {
-      event.preventDefault();
-      this.props.addFriend(this.state.friend);
+    handleSubmit = event => {
+      // this.props.addFriend(this.state.friend);
       this.setState({
         friend: {
           [event.target.name]: event.target.value
         }
       });
-    };
+      
+    }
 
     
 
     render() {
-      // const {name, age, email } = this.props
       return (
         <div>
             <Card body inverse color="info" >
             <CardHeader tag="h3">Friends</CardHeader>
              <CardBody>
                  <CardSubtitle>Add Me!</CardSubtitle>
-                <Form onSubmit={this.changeHandler}>
+                <Form onSubmit={this.handleSubmit}>
                 <FormGroup>
                     <Label for="name">Name</Label>
-                    <Input type="text" name="name" id="name-input" placeholder="Enter Name" onChange={this.changeHandler} value={this.state.friend.name} />
+                    <Input type="text" name="name" id="name-input" placeholder="Enter Name" onChange={this.handleSubmit} value={this.state.friend.name} />
                 </FormGroup>
                 <FormGroup>
                     <Label for="age">Age</Label>
-                    <Input type="text" name="age" id="age-input" placeholder="Enter Age" onChange={this.changeHandler} value={this.state.friend.age}/>
+                    <Input type="text" name="age" id="age-input" placeholder="Enter Age" onChange={this.handleSubmit} value={this.state.friend.age}/>
                 </FormGroup>
                 <FormGroup>
                     <Label for="exampleEmail">Email</Label>
-                    <Input type="text" name="email" id="Email" placeholder="Enter Email" onChange={this.changeHandler} value={this.state.friend.email}/>
+                    <Input type="text" name="email" id="Email" placeholder="Enter Email" onChange={this.handleSubmit} value={this.state.friend.email}/>
                 </FormGroup>
                 <Button color="warning" size="lg" block>Submit</Button>
                 </Form>
